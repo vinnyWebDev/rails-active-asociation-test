@@ -1,0 +1,128 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @user %>
+
+<div>
+  <%= link_to "Edit this user", edit_user_path(@user) %> |
+  <%= link_to "Back to users", users_path %>
+
+  <%= button_to "Destroy this user", @user, method: :delete %>
+</div>
+
+<h2>Cows</h2>
+<% @user.cows.each do |cow| %>
+
+<p>
+    <strong>Tag:</strong>
+    <%= cow.tag %>
+  </p>
+
+  <p>
+    <strong>Dob:</strong>
+    <%= cow.dob %>
+  </p>
+
+  <p>
+    <strong>Breed:</strong>
+    <%= cow.breed %>
+  </p>
+
+  <p>
+    <strong>Dam:</strong>
+    <%= cow.dam %>
+  </p>
+
+  <p>
+    <strong>Docility:</strong>
+    <%= cow.docility %>
+  </p>
+
+  <p>
+    <strong>Agression:</strong>
+    <%= cow.agression %>
+  </p>
+
+  <p>
+    <strong>Fertility:</strong>
+    <%= cow.fertility %>
+  </p>
+
+  <p>
+    <strong>Calving:</strong>
+    <%= cow.calving %>
+  </p>
+
+  <p>
+    <strong>Milk:</strong>
+    <%= cow.milk %>
+  </p>
+
+  <p>
+    <strong>Calf:</strong>
+    <%= cow.calf %>
+  </p>
+
+  <p>
+    <strong>User:</strong>
+    <%= cow.user_id %>
+  </p>
+
+
+<% end %>
+
+<h2>Add a Cow:</h2>
+<%= form_with model: [ @user, @user.cows.build ] do |form| %>
+<div>
+    <%= form.label :tag, style: "display: block" %>
+    <%= form.number_field :tag %>
+  </div>
+
+  <div>
+    <%= form.label :dob, style: "display: block" %>
+    <%= form.date_field :dob %>
+  </div>
+
+  <div>
+    <%= form.label :breed, style: "display: block" %>
+    <%= form.text_field :breed %>
+  </div>
+
+  <div>
+    <%= form.label :dam, style: "display: block" %>
+    <%= form.number_field :dam %>
+  </div>
+
+  <div>
+    <%= form.label :docility, style: "display: block" %>
+    <%= form.number_field :docility %>
+  </div>
+
+  <div>
+    <%= form.label :agression, style: "display: block" %>
+    <%= form.number_field :agression %>
+  </div>
+
+  <div>
+    <%= form.label :fertility, style: "display: block" %>
+    <%= form.number_field :fertility %>
+  </div>
+
+  <div>
+    <%= form.label :calving, style: "display: block" %>
+    <%= form.number_field :calving %>
+  </div>
+
+  <div>
+    <%= form.label :milk, style: "display: block" %>
+    <%= form.number_field :milk %>
+  </div>
+
+  <div>
+    <%= form.label :calf, style: "display: block" %>
+    <%= form.number_field :calf %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
